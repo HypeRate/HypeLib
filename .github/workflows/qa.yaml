@@ -62,6 +62,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
     env:
       MIX_ENV: test
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
