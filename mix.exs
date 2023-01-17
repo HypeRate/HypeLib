@@ -30,7 +30,10 @@ defmodule HypeLib.MixProject do
         links: %{
           "GitHub" => @github_url
         }
-      ]
+      ],
+
+      # Coveralls
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -50,7 +53,8 @@ defmodule HypeLib.MixProject do
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
 
       # Quality assurance
-      {:credo, "~> 1.5", only: [:dev, :test]}
+      {:credo, "~> 1.5", only: [:dev, :test]},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 end

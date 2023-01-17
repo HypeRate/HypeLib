@@ -10,6 +10,8 @@ jobs:
       matrix:
         otp: ['25']
         elixir: ['1.14']
+    env:
+      MIX_ENV: test
     steps:
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
@@ -18,8 +20,10 @@ jobs:
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix test --color
+      - run: mix coveralls
 
   credo:
+    needs: "test"
     runs-on: ubuntu-latest
     name: Credo - Elixir ${{matrix.elixir}} (${{matrix.otp}})
     strategy:
@@ -34,3 +38,22 @@ jobs:
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix credo
+
+  coveralls:
+    runs-on: ubuntu-latest
+    name: Coveralls - Elixir ${{matrix.elixir}} (${{matrix.otp}})
+    needs: "credo"
+    strategy:
+      matrix:
+        otp: ['25']
+        elixir: ['1.14']
+    env:
+      MIX_ENV: test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+      - run: mix deps.get
+      - run: mix coveralls.github

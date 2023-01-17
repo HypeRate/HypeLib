@@ -2,9 +2,13 @@
 		clear \
 		compile \
 		test \
+		coverage \
+		coverage-report \
 		watch-raw \
 		watch \
-		watch-docs
+		watch-docs \
+		watch-credo \
+		watch-coverage-report
 
 install: clear
 	mix do deps.get, deps.compile
@@ -24,8 +28,14 @@ test:
 credo:
 	mix credo
 
+coverage:
+	MIX_ENV=test mix coveralls
+
+coverage-report:
+	MIX_ENV=test mix coveralls.html
+
 watch-raw:
-	npx concurrently "make test" "make docs" "make credo"
+	npx concurrently "make test" "make docs" "make credo" "make coverage-report"
 
 watch:
 	npx onchange -i -k "lib/**/*.ex" "test/**/*.exs" -- make clear watch-raw
@@ -38,3 +48,6 @@ watch-docs:
 
 watch-credo:
 	npx onchange -i -k "lib/**/*.ex" -- make clear credo
+
+watch-coverage-report:
+	npx onchange -i -k "lib/**/*.ex" -- make clear coverage-report
