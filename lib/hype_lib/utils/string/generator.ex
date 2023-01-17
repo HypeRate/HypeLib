@@ -260,7 +260,7 @@ defmodule HypeLib.Utils.String.Generator do
   | :------------- | :------------------- | :------------------------------------------------------------------- | :------------------- |
   | desired_length | `number()`           | Only positive numerical values (excluding zero and negative numbers) | `0`, `3.14`          |
   | charset        | `list(String.t())`   | A list of strings which will be randomly picked                      | `["a"]`, `~w(a b c)` |
-  | current_string | ``String.t()         | The starting string                                                  | `""`, `"a"`, `"aAa"` |
+  | current_string | `String.t()`         | The starting string                                                  | `""`, `"a"`, `"aAa"` |
 
   ## Examples
 
