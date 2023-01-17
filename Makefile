@@ -4,7 +4,7 @@
 		test \
 		watch
 
-install:
+install: clear
 	mix do deps.get, deps.compile
 
 clear:
