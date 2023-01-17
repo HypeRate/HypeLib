@@ -5,7 +5,7 @@ name: Quality assurance
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: ExUnit - Elixir ${{matrix.elixir}} (${{matrix.otp}})
+    name: ExUnit + Codecov - E=${{matrix.elixir}} O=${{matrix.otp}}
     strategy:
       matrix:
         otp: ['25']
@@ -27,12 +27,12 @@ jobs:
             _build
           key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
       - run: mix deps.get
-      - run: mix test --color
-      - run: mix coveralls
+      - run: mix coveralls.json
+      - run: bash <(curl -s https://codecov.io/bash)
 
   credo:
     runs-on: ubuntu-latest
-    name: Credo - Elixir ${{matrix.elixir}} (${{matrix.otp}})
+    name: Credo - E=${{matrix.elixir}} O=${{matrix.otp}}
     strategy:
       matrix:
         otp: ['25']
