@@ -5,7 +5,7 @@ on:
 
 jobs:
   tests:
-    uses: ./.github/workflows/tests.yml
+    uses: ./tests.yml
 
   publish:
     name: "Publish to hex.pm"
