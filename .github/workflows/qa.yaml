@@ -82,3 +82,17 @@ jobs:
       - run: mix deps.get
       - run: mix coveralls.json
       - run: bash <(curl -s https://codecov.io/bash)
+
+  publish:
+    name: "Publish to hex.pm"
+    needs: "coveralls"
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+
+      - name: Publish to Hex.pm
+        uses: erlangpack/github-action@v3
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
