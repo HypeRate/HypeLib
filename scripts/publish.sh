@@ -126,4 +126,4 @@ git stash pop
 echo
 echo "-----"
 echo -e "Published new version: \e[5;92m$new_version\e[25;39m!"
-echo "Also switched back to old branch $old_branch and applied your lastest changes"
+echo -e "Also switched back to old branch \e[95m$old_branch\e[39m and applied your lastest changes"
