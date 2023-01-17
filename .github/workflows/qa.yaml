@@ -56,11 +56,10 @@ jobs:
 
   coveralls:
     runs-on: ubuntu-latest
-    name: Coveralls report
+    name: Codecov report
     needs:
       - test
       - credo
-    if: github.ref == 'refs/heads/master'
     env:
       MIX_ENV: test
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
