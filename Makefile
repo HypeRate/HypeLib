@@ -17,4 +17,4 @@ test:
 	mix test --color
 
 watch:
-	npx onchange -i -k "lib/**/*.ex" -- make clear test
+	npx onchange -i -k "lib/**/*.ex" "test/**/*.exs" -- make clear test
