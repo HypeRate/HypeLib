@@ -1,5 +1,6 @@
 defmodule HypeLib.Prelude do
   use TypeCheck
+  use HypeLib.UseInvoker, required_utils: [:core]
 
   @spec! core() :: Macro.t()
   @doc """
@@ -33,35 +34,5 @@ defmodule HypeLib.Prelude do
     quote do
       use Absinthe.Schema.Notation
     end
-  end
-
-  @spec! __using__(which :: atom() | list(atom())) :: Macro.t()
-  defmacro __using__(which) when is_atom(which) do
-    apply_using([which])
-  end
-
-  defmacro __using__(which) when is_list(which) do
-    apply_using(which)
-  end
-
-  defp apply_using(which) do
-    which =
-      if Enum.member?(which, :core) do
-        which
-      else
-        [:core] ++ which
-      end
-
-    Enum.reduce(
-      which,
-      quote do
-      end,
-      fn entry, acc ->
-        quote do
-          unquote(acc)
-          unquote(apply(HypeLib.Prelude, entry, []))
-        end
-      end
-    )
   end
 end
