@@ -62,7 +62,7 @@ done
 
 
 step "Adding mix.exs and README.md to git"
-git add mix.exs README.md
+git add mix.exs README.md ./lib/
 
 step "Commit the new release on master branch"
 git commit -m "chore: bump version to $new_version"
