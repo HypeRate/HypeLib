@@ -9,7 +9,7 @@
 ```elixir
 def deps do
   [
-    {:hype_lib, git: "https://github.com/HypeRate/HypeLib"}
+    {:hype_lib, "~> 0.1"}
   ]
 end
 ```
