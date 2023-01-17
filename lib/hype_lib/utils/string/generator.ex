@@ -114,8 +114,7 @@ defmodule HypeLib.Utils.String.Generator do
   {:ok, Generator.charset(:lower) ++ Generator.charset(:upper) ++ Generator.charset(:numeric)}
   ```
   """
-  def charsets(charset_names) when length(charset_names) == 0,
-    do: {:error, "Empty charset names list provided"}
+  def charsets([]), do: {:error, "Empty charset names list provided"}
 
   def charsets(charset_names) do
     mapped_charset =
