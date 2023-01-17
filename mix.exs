@@ -22,7 +22,7 @@ defmodule HypeLib.MixProject do
   defp deps do
     [
       {:absinthe, "~> 1.7"},
-      {:ecto, "~> 3.6.2"},
+      {:ecto, "~> 3.6"},
       {:type_check, "~> 0.13.2"}
     ]
   end
