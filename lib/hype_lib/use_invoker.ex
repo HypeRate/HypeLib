@@ -91,19 +91,10 @@ defmodule HypeLib.UseInvoker do
       end
 
       defp apply_using(which) do
-        which = Enum.uniq(unquote(required_utils) ++ which)
-
-        Enum.reduce(
-          which,
-          quote do
-          end,
-          fn entry, acc ->
-            quote do
-              unquote(acc)
-              unquote(apply(__MODULE__, entry, []))
-            end
-          end
-        )
+        unquote(required_utils)
+        |> Kernel.++(which)
+        |> Enum.uniq()
+        |> Enum.map(&apply(__MODULE__, &1, []))
       end
     end
   end
