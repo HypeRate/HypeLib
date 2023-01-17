@@ -29,6 +29,7 @@ defmodule HypeLib.Prelude do
   ...>     StringUtils.Generator.generate_string!(1, ~w(a))
   ...>   end
   ...> end
+  ...>
   ...> TokenGenerator.generate_token()
   "a"
   ```
