@@ -147,6 +147,11 @@ defmodule HypeLib.Utils.String.Generator do
   iex> HypeLib.Utils.String.Generator.charsets!(~w(lower numeric)a)
   ~w(a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9)
   ```
+
+  ```elixir
+  iex> HypeLib.Utils.String.Generator.charsets!([])
+  ** (RuntimeError) Empty charset names list provided
+  ```
   """
   def charsets!(charset_names) do
     case charsets(charset_names) do
@@ -256,6 +261,45 @@ defmodule HypeLib.Utils.String.Generator do
   | desired_length | `number()`           | Only positive numerical values (excluding zero and negative numbers) | `0`, `3.14`          |
   | charset        | `list(String.t())`   | A list of strings which will be randomly picked                      | `["a"]`, `~w(a b c)` |
   | current_string | ``String.t()         | The starting string                                                  | `""`, `"a"`, `"aAa"` |
+
+  ## Examples
+
+  ```elixir
+  iex> HypeLib.Utils.String.Generator.generate_string!(2, [])
+  ** (RuntimeError) Invalid charset length
+  ```
+
+  Generate a string with a length of 2 and a given charset of ~w(a)
+
+  ```elixir
+  iex> HypeLib.Utils.String.Generator.generate_string!(2, ~w(a))
+  "aa"
+  ```
+
+  Generate a random string with a length of 16 and the alphabet given as charset
+
+  ```elixir
+  iex> alias HypeLib.Utils.String.Generator
+  ...> Generator.generate_string!(16, Generator.charset(:lower))
+  ...> |> String.length()
+  16
+  ```
+
+  It returns the current string if it has already the desired length
+
+  ```elixir
+  iex> alias HypeLib.Utils.String.Generator
+  ...> Generator.generate_string!(1, Generator.charset(:lower), "a")
+  "a"
+  ```
+
+  It returns the current string if it is already longer than the desired length
+
+  ```elixir
+  iex> alias HypeLib.Utils.String.Generator
+  ...> Generator.generate_string!(1, Generator.charset(:lower), "aa")
+  "aa"
+
   """
   def generate_string!(desired_length, charset, current_string \\ "") do
     case(generate_string(desired_length, charset, current_string)) do
