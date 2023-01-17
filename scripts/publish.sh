@@ -52,6 +52,15 @@ sed -i -e "/version/s/\".*\"/\"$new_version\"/" mix.exs
 step "Replacing version in README.md"
 sed -i -e "/~>/s/\"~> .*\"/\"~> $new_version\"/" README.md
 
+step "Replace upcoming version in all lib/**/*.ex files"
+
+for file in $(find ./lib -type f -name "*.ex"); do
+    echo "Processing file: $file"
+
+    sed -i -e "/###/s/### <upcoming version>/### $new_version/" $file
+done
+
+
 step "Adding mix.exs and README.md to git"
 git add mix.exs README.md
 
