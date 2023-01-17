@@ -2,6 +2,7 @@
 		clear \
 		compile \
 		test \
+		credo \
 		coverage \
 		coverage-report \
 		watch-raw \
