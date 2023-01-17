@@ -34,7 +34,10 @@ defmodule HypeLib.MixProject do
       {:absinthe, "~> 1.7"},
       {:ecto, "~> 3.6"},
       {:type_check, "~> 0.13.2"},
-      {:ex_doc, "~> 0.27", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false},
+
+      # Quality assurance
+      {:credo, "~> 1.5", only: [:dev, :test]}
     ]
   end
 end

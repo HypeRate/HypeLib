@@ -1,5 +1,7 @@
 on: [push, pull_request]
 
+name: Quality assurance
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -16,3 +18,19 @@ jobs:
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix test --color
+
+  credo:
+    runs-on: ubuntu-latest
+    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    strategy:
+      matrix:
+        otp: ['25']
+        elixir: ['1.14']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+      - run: mix deps.get
+      - run: mix credo

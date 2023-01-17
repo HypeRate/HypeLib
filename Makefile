@@ -21,8 +21,11 @@ docs:
 test:
 	mix test --color
 
+credo:
+	mix credo
+
 watch-raw:
-	npx concurrently "make test" "make docs"
+	npx concurrently "make test" "make docs" "make credo"
 
 watch:
 	npx onchange -i -k "lib/**/*.ex" "test/**/*.exs" -- make clear watch-raw
@@ -32,3 +35,6 @@ watch-tests:
 
 watch-docs:
 	npx onchange -i -k "lib/**/*.ex" -- make clear docs
+
+watch-credo:
+	npx onchange -i -k "lib/**/*.ex" -- make clear credo
