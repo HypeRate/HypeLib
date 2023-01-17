@@ -1,5 +1,7 @@
 # HypeLib
 
+[![Hex version badge](https://img.shields.io/hexpm/v/hype_lib.svg)](https://hex.pm/packages/hype_lib)
+[![License badge](https://img.shields.io/hexpm/l/hype_lib.svg)](https://github.com/HypeRate/HypeLib/blob/master/LICENSE.md)
 [![codecov](https://codecov.io/github/HypeRate/HypeLib/branch/master/graph/badge.svg?token=N4V69694MA)](https://codecov.io/github/HypeRate/HypeLib)
 
 `HypeLib` is the internal Elixir framework of HypeRate which is used across all Elixir related repositories.
