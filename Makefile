@@ -14,7 +14,7 @@ compile:
 	mix compile
 
 test:
-	mix test
+	mix test --color
 
 watch:
 	npx onchange -i -k "lib/**/*.ex" -- make clear test
