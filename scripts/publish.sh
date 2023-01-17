@@ -61,5 +61,8 @@ git commit -m "chore: bump version to $new_version"
 step "Create the git tag for triggering the GitHub Actions \"publish\" workflow"
 git tag "v$new_version"
 
-step "Push the new commit and tag to GitHub"
-git push --follow-tags
+step "Push the new commit to GitHub"
+git push
+
+step "Push the new tag to GitHub"
+git push --tags
