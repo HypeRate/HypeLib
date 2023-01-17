@@ -13,8 +13,14 @@ clear:
 compile:
 	mix compile
 
+docs:
+	mix docs
+
 test:
 	mix test --color
 
 watch:
 	npx onchange -i -k "lib/**/*.ex" "test/**/*.exs" -- make clear test
+
+watch-docs:
+	npx onchange -i -k "lib/**/*.ex" -- make clear docs
