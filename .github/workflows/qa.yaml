@@ -5,7 +5,7 @@ name: Quality assurance
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    name: ExUnit - Elixir ${{matrix.elixir}} (${{matrix.otp}})
     strategy:
       matrix:
         otp: ['25']
@@ -21,7 +21,7 @@ jobs:
 
   credo:
     runs-on: ubuntu-latest
-    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    name: Credo - Elixir ${{matrix.elixir}} (${{matrix.otp}})
     strategy:
       matrix:
         otp: ['25']
