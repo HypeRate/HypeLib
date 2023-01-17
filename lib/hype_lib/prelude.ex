@@ -1,4 +1,9 @@
 defmodule HypeLib.Prelude do
+  @moduledoc """
+  The `Prelude` module contains utility functions for working with
+  external dependencies like TypeCheck, the Elixir `Logger` moudle etc.
+  """
+
   use TypeCheck
   use HypeLib.UseInvoker, required_utils: [:core]
 
@@ -36,6 +41,7 @@ defmodule HypeLib.Prelude do
   """
   def string do
     quote do
+      # credo:disable-for-next-line
       alias HypeLib.Utils.String, as: StringUtils
     end
   end

@@ -41,8 +41,7 @@ defmodule HypeLib.DocTester do
 
   defmacro __using__(modules) do
     mapped_modules =
-      modules
-      |> Enum.map(fn module_to_test ->
+      Enum.map(modules, fn module_to_test ->
         quote do
           doctest unquote(module_to_test)
         end
