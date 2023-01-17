@@ -14,6 +14,31 @@ defmodule HypeLib.Prelude do
     end
   end
 
+  @spec! string() :: Macro.t()
+  @doc """
+  Imports the `HypeLib.Utils.String` module as `StringUtils` into the current context.
+
+  ## Examples
+
+  ```elixir
+  iex> defmodule TokenGenerator do
+  ...>   use HypeLib.Prelude, :string
+  ...>
+  ...>   @spec! generate_token() :: String.t()
+  ...>   def generate_token() do
+  ...>     StringUtils.Generator.generate_string!(1, ~w(a))
+  ...>   end
+  ...> end
+  ...> TokenGenerator.generate_token()
+  "a"
+  ```
+  """
+  def string do
+    quote do
+      alias HypeLib.Utils.String, as: StringUtils
+    end
+  end
+
   @spec! entity() :: Macro.t()
   @doc """
   Imports the Ecto schema functions and all changeset functions
