@@ -1,3 +1,7 @@
 defmodule HypeLibTest do
-  use ExUnit.Case
+  use HypeLib.DocTester, [
+    HypeLib.Prelude,
+    HypeLib.UseInvoker,
+    HypeLib.Utils.String.Generator
+  ]
 end
