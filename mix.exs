@@ -6,6 +6,7 @@ defmodule HypeLib.MixProject do
   def project do
     [
       app: :hype_lib,
+      description: "A general-purpose library for Elixir based projects.",
       version: "0.0.1",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
