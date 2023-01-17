@@ -264,6 +264,8 @@ defmodule HypeLib.Utils.String.Generator do
 
   ## Examples
 
+  It should raise an runtime error when the charset is an empty list.
+
   ```elixir
   iex> HypeLib.Utils.String.Generator.generate_string!(2, [])
   ** (RuntimeError) Invalid charset length
