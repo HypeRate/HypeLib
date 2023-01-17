@@ -1,6 +1,6 @@
 # HypeLib
 
-[![Code coverage badge](https://img.shields.io/codecov/c/github/HypeRate/HypeLib/master.svg)](https://codecov.io/gh/HypeRate/HypeLib/branch/master)
+[![codecov](https://codecov.io/github/HypeRate/HypeLib/branch/master/graph/badge.svg?token=N4V69694MA)](https://codecov.io/github/HypeRate/HypeLib)
 
 `HypeLib` is the internal Elixir framework of HypeRate which is used across all Elixir related repositories.
 
