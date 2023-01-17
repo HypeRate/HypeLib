@@ -51,7 +51,7 @@ defmodule HypeLib.DocTester do
 
   Initial implementation
 
-  ### <upcoming version>
+  ### 2.0.0
 
   Refactor to use a Keyword list as first argument instead of list of modules.
 
