@@ -88,7 +88,6 @@ jobs:
     needs: 
       - test
       - credo
-    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Check out
