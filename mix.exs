@@ -7,9 +7,7 @@ defmodule HypeLib.MixProject do
       version: "0.0.1",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps(),
-      aliases: aliases(),
-      preferred_cli_env: ["test.ci": :test]
+      deps: deps()
     ]
   end
 
@@ -17,12 +15,6 @@ defmodule HypeLib.MixProject do
   def application do
     [
       extra_applications: [:logger]
-    ]
-  end
-
-  defp aliases do
-    [
-      "test.ci": ["test --color"]
     ]
   end
 
