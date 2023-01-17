@@ -1,6 +1,8 @@
 defmodule HypeLib.MixProject do
   use Mix.Project
 
+  @github_url "https://github.com/HypeRate/HypeLib"
+
   def project do
     [
       app: :hype_lib,
@@ -11,12 +13,23 @@ defmodule HypeLib.MixProject do
 
       # Docs
       name: "HypeLib",
-      source_url: "https://github.com/HypeRate/HypeLib",
+      source_url: @github_url,
       homepage_url: "https://hyperate.io",
       docs: [
         # The main page in the docs
         main: "HypeLib",
         extras: ["README.md"]
+      ],
+
+      # Packaging
+
+      files: ~w(mix.exs lib LICENSE.md README.md),
+      package: [
+        maintainers: ["Yannick Fricke"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => @github_url
+        }
       ]
     ]
   end
