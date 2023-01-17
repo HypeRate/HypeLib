@@ -11,7 +11,7 @@
 ```elixir
 def deps do
   [
-    {:hype_lib, "~> 1.0.1"}
+    {:hype_lib, "~> 2.0.0"}
   ]
 end
 ```
