@@ -140,6 +140,13 @@ defmodule HypeLib.Utils.String.Generator do
   | Name          | Expected data type       | Description                   | Example values                             |
   | :------------ | :----------------------- | :---------------------------- | :----------------------------------------- |
   | charset_names | `list(valid_charsets())` | A list of valid charset names | `[:lower]`, `~w(lower upper numeric hex)a` |
+
+  ## Examples
+
+  ```elixir
+  iex> HypeLib.Utils.String.Generator.charsets!(~w(lower numeric)a)
+  ~w(a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9)
+  ```
   """
   def charsets!(charset_names) do
     case charsets(charset_names) do
@@ -165,6 +172,13 @@ defmodule HypeLib.Utils.String.Generator do
   Generates a string of the desired length with random characters from the given charset.
 
   ## Examples
+
+  It should return an error when the given charset is empty
+
+  ```elixir
+  iex> HypeLib.Utils.String.Generator.generate_string(2, [])
+  {:error, "Invalid charset length"}
+  ```
 
   Generate a string with a length of 2 and a given charset of ~w(a)
 
