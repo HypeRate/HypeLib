@@ -31,7 +31,6 @@ jobs:
       - run: mix coveralls
 
   credo:
-    needs: "test"
     runs-on: ubuntu-latest
     name: Credo - Elixir ${{matrix.elixir}} (${{matrix.otp}})
     strategy:
@@ -58,7 +57,9 @@ jobs:
   coveralls:
     runs-on: ubuntu-latest
     name: Coveralls report
-    needs: "credo"
+    needs:
+      - test
+      - credo
     if: github.ref == 'refs/heads/master'
     env:
       MIX_ENV: test
