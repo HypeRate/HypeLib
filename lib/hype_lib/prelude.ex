@@ -49,6 +49,25 @@ defmodule HypeLib.Prelude do
   @spec! entity() :: Macro.t()
   @doc """
   Imports the Ecto schema functions and all changeset functions
+
+  Hint: Do not forget to configure your application to use timestamps with timezone information:
+
+  ```elixir
+  config :my_app,
+      MyApp.Repo,
+      migration_timestamps: [
+        type: :utc_datetime
+      ]
+  ```
+
+  You might want to install [Timex](https://hexdocs.pm/timex) for DateTime convenience functions
+  like creating and manipulating the date or time.
+
+  Run the following command to view the latest version of Timex:
+
+  ```
+  mix hex.info timex
+  ```
   """
   def entity do
     quote do
@@ -58,6 +77,8 @@ defmodule HypeLib.Prelude do
       alias Ecto.Schema, as: Database
 
       import Ecto.Changeset
+
+      @timestamps_opts [type: :utc_datetime]
     end
   end
 
