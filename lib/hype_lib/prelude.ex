@@ -10,6 +10,12 @@ defmodule HypeLib.Prelude do
   @spec! core() :: Macro.t()
   @doc """
   Imports TypeCheck and requires the Erlang logger
+
+  ## Changelog
+
+  ### 1.0.0
+
+  Initial release
   """
   def core do
     quote do
@@ -38,6 +44,12 @@ defmodule HypeLib.Prelude do
   ...> TokenGenerator.generate_token()
   "a"
   ```
+
+  ## Changelog
+
+  ### 1.0.0
+
+  Initial release
   """
   def string do
     quote do
@@ -73,6 +85,19 @@ defmodule HypeLib.Prelude do
   ```
   mix hex.info timex
   ```
+
+  ## Changelog
+
+  ### <upcoming version>
+
+  - Added the `Database` alias
+  - Added timezone support
+  - Added the `Usage` section
+
+
+  ### 1.0.0
+
+  Initial release
   """
   def entity do
     quote do
@@ -90,6 +115,16 @@ defmodule HypeLib.Prelude do
   @spec! graphql() :: Macro.t()
   @doc """
   Imports the Absinthe notation module
+
+  ## Changelog
+
+  ### <upcoming version>
+
+  - Added the `GraphQL` alias
+
+  ### 1.0.0
+
+  Initial release
   """
   def graphql do
     quote do
@@ -102,6 +137,12 @@ defmodule HypeLib.Prelude do
   @spec! graphql_schema() :: Macro.t()
   @doc """
   Imports the graphql AST and uses the `Absinthe.Schema`
+
+  ## Changelog
+
+  ### <upcoming version>
+
+  Initial release
   """
   def graphql_schema do
     [
