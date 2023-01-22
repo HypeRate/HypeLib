@@ -88,7 +88,7 @@ defmodule HypeLib.Prelude do
 
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.2.0
 
   - Added the `Database` alias
   - Added timezone support
@@ -118,7 +118,7 @@ defmodule HypeLib.Prelude do
 
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.2.0
 
   - Added the `GraphQL` alias
 
@@ -140,7 +140,7 @@ defmodule HypeLib.Prelude do
 
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.2.0
 
   Initial release
   """
