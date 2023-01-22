@@ -72,4 +72,17 @@ defmodule HypeLib.Prelude do
       alias Absinthe.Schema.Notation, as: GraphQL
     end
   end
+
+  @spec! graphql_schema() :: Macro.t()
+  @doc """
+  Imports the graphql AST and uses the `Absinthe.Schema`
+  """
+  def graphql_schema do
+    [
+      graphql(),
+      quote do
+        use Absinthe.Schema
+      end
+    ]
+  end
 end
