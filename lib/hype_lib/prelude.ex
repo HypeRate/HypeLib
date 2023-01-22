@@ -68,6 +68,8 @@ defmodule HypeLib.Prelude do
   def graphql do
     quote do
       use Absinthe.Schema.Notation
+      # credo:disable-for-next-line
+      alias Absinthe.Schema.Notation, as: GraphQL
     end
   end
 end
