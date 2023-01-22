@@ -54,6 +54,9 @@ defmodule HypeLib.Prelude do
     quote do
       use Ecto.Schema
 
+      # credo:disable-for-next-line
+      alias Ecto.Schema, as: Database
+
       import Ecto.Changeset
     end
   end
