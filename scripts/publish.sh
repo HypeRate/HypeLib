@@ -47,6 +47,8 @@ git reset --hard
 step "Switching to master branch"
 git checkout master
 
+git merge --no-commit develop
+
 step "Fetching current version from mix.exs"
 
 if [[ $current_version =~ $regex ]]
