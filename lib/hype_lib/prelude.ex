@@ -50,6 +50,11 @@ defmodule HypeLib.Prelude do
   @doc """
   Imports the Ecto schema functions and all changeset functions
 
+  ## Usage
+
+  This macro adds an module attribute to the calling module for defining
+  ecto timestamps as `DateTime` structs instead of `NaiveDateTime`.
+
   Hint: Do not forget to configure your application to use timestamps with timezone information:
 
   ```elixir
