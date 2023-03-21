@@ -1,7 +1,19 @@
 defmodule HypeLib.Utils.Changeset do
-  alias HypeLib.Utils
+  @moduledoc """
+  ## Changelog
+
+  ### 2.3.0
+
+  First implementation
+
+  ### <upcoming version>
+
+  Fixed credo warnings
+  """
 
   import Ecto.Changeset
+
+  alias HypeLib.Utils
 
   @doc """
   ## Changelog

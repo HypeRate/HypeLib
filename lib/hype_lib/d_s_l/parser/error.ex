@@ -1,4 +1,14 @@
 defmodule HypeLib.DSL.Parser.Error do
+  @moduledoc """
+  A parent module which contains submodules for exceptions that could occur when parsing an AST
+
+  ## Changelog
+
+  ### <upcoming version>
+
+  Fixed credo warnings
+  """
+
   defmodule NoModuleError do
     defexception [:message]
 
@@ -23,7 +33,7 @@ defmodule HypeLib.DSL.Parser.Error do
     @impl Exception
     def message(%__MODULE__{module: module, function_name: function_name, arity: arity}),
       do: """
-      The given module '#{inspect(module)}' does not implement the required ASTlix.Parser `#{function_name}/#{arity}` lifecycle method
+      The given module '#{inspect(module)}' does not implement the required HypeLib.DSL.Parser `#{function_name}/#{arity}` lifecycle method
       """
   end
 end

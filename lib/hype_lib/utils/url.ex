@@ -1,4 +1,12 @@
 defmodule HypeLib.Utils.Url do
+  @moduledoc """
+  ## Changelog
+
+  ### <upcoming version>
+
+  Fixed credo warnings
+  """
+
   use HypeLib.Prelude
 
   # https://data.iana.org/TLD/tlds-alpha-by-domain.txt
@@ -1486,6 +1494,7 @@ defmodule HypeLib.Utils.Url do
     zuerich
     zw
   )
+              # credo:disable-for-next-line
               |> Enum.map(&Kernel.<>(".", &1))
 
   @spec! is_tld(input :: String.t()) :: boolean()

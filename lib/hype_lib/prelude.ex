@@ -58,6 +58,19 @@ defmodule HypeLib.Prelude do
     end
   end
 
+  @spec! url() :: Macro.t()
+  @doc """
+  ## Changelog
+
+  ### <upcoming version>
+  """
+  def url do
+    quote do
+      # credo:disable-for-next-line
+      alias HypeLib.Utils.Url, as: UrlUtils
+    end
+  end
+
   @spec! entity() :: Macro.t()
   @doc """
   Imports the Ecto schema functions and all changeset functions

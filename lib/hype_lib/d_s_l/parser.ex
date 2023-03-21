@@ -1,4 +1,12 @@
 defmodule HypeLib.DSL.Parser do
+  @moduledoc """
+  ## Changelog
+
+  ### <upcoming version>
+
+  Fixed credo errors
+  """
+
   use HypeLib.Prelude
 
   # Type definitions
@@ -36,18 +44,16 @@ defmodule HypeLib.DSL.Parser do
   @doc """
   Returns the initial state of the parser
   """
-  def get_initial_state(parser_module), do: apply(parser_module, :on_init, [])
+  def get_initial_state(parser_module), do: parser_module.on_init()
 
   @spec! is_parser(module_to_check :: term()) :: boolean
   def is_parser(module_to_check) do
-    try do
-      check_parser_module(module_to_check)
+    check_parser_module(module_to_check)
 
-      true
-    catch
-      _ ->
-        false
-    end
+    true
+  rescue
+    _ ->
+      false
   end
 
   @spec! check_parser_module(module_to_check :: term()) :: nil | none()
@@ -68,9 +74,11 @@ defmodule HypeLib.DSL.Parser do
   def unhandled_element(element, parser_state) do
     IO.puts("-------- UNHANDLED AST ELEMENT --------")
     IO.puts("Found undhandled element:")
+    # credo:disable-for-next-line
     IO.inspect(element)
     IO.puts("")
     IO.puts("At state:")
+    # credo:disable-for-next-line
     IO.inspect(parser_state)
     IO.puts("---------------------------------------")
 
