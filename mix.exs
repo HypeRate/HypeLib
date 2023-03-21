@@ -19,7 +19,21 @@ defmodule HypeLib.MixProject do
       docs: [
         # The main page in the docs
         main: "HypeLib",
-        extras: ["README.md"]
+        extras: ["README.md"],
+        groups_for_modules: [
+          "Domain specific language": [
+            HypeLib.DSL,
+            HypeLib.DSL.Parser,
+            HypeLib.DSL.Parser.Error,
+            HypeLib.DSL.Parser.Error.MissingLifecycleMethodError,
+            HypeLib.DSL.Parser.Error.NoModuleError
+          ],
+          "Utility modules": [
+            HypeLib.Utils.Changeset,
+            HypeLib.Utils.String.Generator,
+            HypeLib.Utils.Url
+          ]
+        ]
       ],
 
       # Packaging
