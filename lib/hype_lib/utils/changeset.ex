@@ -10,7 +10,7 @@ defmodule HypeLib.Utils.Changeset do
 
   Fixed credo warnings
 
-  ### <upcoming version>
+  ### 2.4.0
 
   Added the initial implementation of the `validate_not_nil/2` function
   """
@@ -66,7 +66,7 @@ defmodule HypeLib.Utils.Changeset do
 
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.4.0
 
   Initial implementation
   """
