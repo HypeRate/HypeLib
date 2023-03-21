@@ -4,7 +4,7 @@ defmodule HypeLib.DSL do
 
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.3.1
 
   Fixed credo warnings
   """

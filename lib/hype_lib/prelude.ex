@@ -62,7 +62,7 @@ defmodule HypeLib.Prelude do
   @doc """
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.3.1
   """
   def url do
     quote do

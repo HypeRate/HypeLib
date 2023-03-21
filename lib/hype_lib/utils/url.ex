@@ -2,7 +2,7 @@ defmodule HypeLib.Utils.Url do
   @moduledoc """
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.3.1
 
   Fixed credo warnings
   """

@@ -6,7 +6,7 @@ defmodule HypeLib.Utils.Changeset do
 
   First implementation
 
-  ### <upcoming version>
+  ### 2.3.1
 
   Fixed credo warnings
   """
