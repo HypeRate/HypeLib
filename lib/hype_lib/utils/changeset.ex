@@ -73,7 +73,7 @@ defmodule HypeLib.Utils.Changeset do
 
   Initial implementation
 
-  ### <upcoming version>
+  ### 2.4.1
 
   Changed the error message to "can't be nil"
   """
