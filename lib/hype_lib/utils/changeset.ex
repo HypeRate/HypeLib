@@ -9,6 +9,10 @@ defmodule HypeLib.Utils.Changeset do
   ### 2.3.1
 
   Fixed credo warnings
+
+  ### <upcoming version>
+
+  Added the initial implementation of the `validate_not_nil/2` function
   """
 
   import Ecto.Changeset
@@ -50,4 +54,32 @@ defmodule HypeLib.Utils.Changeset do
         changeset
     end
   end
+
+  @doc """
+  Validates if the given field / list of fields are not nil.
+
+  When the changeset contains a field whose value is nil, then the field will
+  be removed from the changeset and an field specific error will be appended to
+  the changeset.
+
+  ## Credits
+
+  ## Changelog
+
+  ### <upcoming version>
+
+  Initial implementation
+  """
+  def validate_not_nil(changeset, field_or_fields) when is_list(field_or_fields) do
+    Enum.reduce(field_or_fields, changeset, fn field, changeset ->
+      if get_field(changeset, field) == nil do
+        add_error(changeset, field, "nil")
+      else
+        changeset
+      end
+    end)
+  end
+
+  def validate_not_nil(changeset, field_or_fields) when is_atom(field_or_fields),
+    do: validate_not_nil(changeset, [field_or_fields])
 end
