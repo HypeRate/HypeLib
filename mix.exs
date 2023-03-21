@@ -24,8 +24,8 @@ defmodule HypeLib.MixProject do
 
       # Packaging
 
-      files: ~w(mix.exs lib LICENSE.md README.md),
       package: [
+        files: ~w(mix.exs lib LICENSE.md README.md),
         maintainers: ["Yannick Fricke"],
         licenses: ["MIT"],
         links: %{
