@@ -6,7 +6,7 @@ defmodule HypeLib.Utils.Changeset do
   @doc """
   ## Changelog
 
-  ### <upcoming version>
+  ### 2.3.0
 
   First implementation
   """
