@@ -64,16 +64,23 @@ defmodule HypeLib.Utils.Changeset do
 
   ## Credits
 
+  Stackoverflow user "Dogbert"
+  - https://stackoverflow.com/a/45754361
+
   ## Changelog
 
   ### 2.4.0
 
   Initial implementation
+
+  ### <upcoming version>
+
+  Changed the error message to "can't be nil"
   """
   def validate_not_nil(changeset, field_or_fields) when is_list(field_or_fields) do
     Enum.reduce(field_or_fields, changeset, fn field, changeset ->
       if get_field(changeset, field) == nil do
-        add_error(changeset, field, "nil")
+        add_error(changeset, field, "can't be nil")
       else
         changeset
       end
