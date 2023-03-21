@@ -28,7 +28,7 @@ defmodule HypeLib.Utils.Changeset do
 
   First implementation
 
-  ### <upcoming version>
+  ### 2.3.2
 
   Added the `charset` argument. This gives developers more control over the used characters
   which should be used when generating the random string.
