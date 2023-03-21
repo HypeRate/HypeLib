@@ -1,57 +1,61 @@
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - '**'
+    pull_request:
 
 name: Quality assurance
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    name: ExUnit + Codecov - E=${{matrix.elixir}} O=${{matrix.otp}}
-    strategy:
-      matrix:
-        otp: ['25']
-        elixir: ['1.14']
-    env:
-      MIX_ENV: test
-    steps:
-      - uses: actions/checkout@v2
-      - uses: erlef/setup-beam@v1
-        with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
-      - name: Retrieve Cached Dependencies
-        uses: actions/cache@v2
-        id: mix-cache
-        with:
-          path: |
-            deps
-            _build
-          key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
-      - run: mix deps.get
-      - run: mix coveralls.json
-      - run: bash <(curl -s https://codecov.io/bash)
+    test:
+        runs-on: ubuntu-latest
+        name: ExUnit + Codecov - E=${{matrix.elixir}} O=${{matrix.otp}}
+        strategy:
+            matrix:
+                otp: ['25']
+                elixir: ['1.14']
+        env:
+            MIX_ENV: test
+        steps:
+            - uses: actions/checkout@v2
+            - uses: erlef/setup-beam@v1
+              with:
+                  otp-version: ${{matrix.otp}}
+                  elixir-version: ${{matrix.elixir}}
+            - name: Retrieve Cached Dependencies
+              uses: actions/cache@v2
+              id: mix-cache
+              with:
+                  path: |
+                      deps
+                      _build
+                  key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
+            - run: mix deps.get
+            - run: mix coveralls.json
+            - run: bash <(curl -s https://codecov.io/bash)
 
-  credo:
-    runs-on: ubuntu-latest
-    name: Credo - E=${{matrix.elixir}} O=${{matrix.otp}}
-    strategy:
-      matrix:
-        otp: ['25']
-        elixir: ['1.14']
-    env:
-      MIX_ENV: test
-    steps:
-      - uses: actions/checkout@v2
-      - uses: erlef/setup-beam@v1
-        with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
-      - name: Retrieve Cached Dependencies
-        uses: actions/cache@v2
-        id: mix-cache
-        with:
-          path: |
-            deps
-            _build
-          key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
-      - run: mix deps.get
-      - run: mix credo
+    credo:
+        runs-on: ubuntu-latest
+        name: Credo - E=${{matrix.elixir}} O=${{matrix.otp}}
+        strategy:
+            matrix:
+                otp: ['25']
+                elixir: ['1.14']
+        env:
+            MIX_ENV: test
+        steps:
+            - uses: actions/checkout@v2
+            - uses: erlef/setup-beam@v1
+              with:
+                  otp-version: ${{matrix.otp}}
+                  elixir-version: ${{matrix.elixir}}
+            - name: Retrieve Cached Dependencies
+              uses: actions/cache@v2
+              id: mix-cache
+              with:
+                  path: |
+                      deps
+                      _build
+                  key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
+            - run: mix deps.get
+            - run: mix credo
